@@ -1,15 +1,40 @@
 #!/usr/bin/python3
-class Square:
+'''
+    Define a class Square
+'''
+
+
+class Square():
+    '''
+        represents a class Square
+    '''
     def __init__(self, size=0, position=(0, 0)):
+        '''
+        Initialization of objects
+        Args:
+            size(int): size of square, must be integer and greater than zero
+        '''
         self.size = size
         self.position = position
 
+    def area(self):
+        '''
+            define a method to get an area of square class
+        '''
+        return self.__size ** 2
+
     @property
     def size(self):
+        '''
+        property  to retrieve it
+        '''
         return self.__size
 
     @size.setter
     def size(self, value):
+        '''
+            property  to set it
+        '''
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
         if value < 0:
@@ -18,26 +43,33 @@ class Square:
 
     @property
     def position(self):
+        '''
+        property  to retrieve it
+        '''
         return self.__position
 
     @position.setter
     def position(self, value):
-        if not isinstance(value, tuple) or len(value) != 2:
-            raise(TypeError("position must be a tuple of 2 positive integers"))
-        elif type(value[0]) != int or type(value[1]) != int:
-            raise(TypeError("position must be a tuple of 2 positive integers"))
-        elif (value[0]) < 0 or (value[1]) < 0:
-            raise(TypeError("position must be a tuple of 2 positive integers"))
-        self.__position = value
-
-    def area(self):
-        return self.__size * self.__size
+        '''
+            property  to sey it
+        '''
+        if isinstance(value, tuple) and len(value) == 2:
+                if isinstance(value[0], int) and isinstance(value[1], int):
+                    if value[0] >= 0 and value[1] >= 0:
+                        self.__position = value
+                        return
+        raise TypeError("position must be a tuple of 2 positive integers")
 
     def my_print(self):
+        '''
+            prints in stdout the square with the character #
+            print new line if size is zero
+        '''
         if self.__size == 0:
             print()
-        else:
-            for x in range(self.__position[1]):
+            return
+
+        for line in range(self.__position[1]):
                 print()
-            for y in range(self.__size):
-                print(" " * self.__position[0] + "#" * self.__size)
+        for col in range(self.__size):
+            print("{}{}".format(self.__position[0] * " ", "#" * self.__size))

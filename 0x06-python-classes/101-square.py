@@ -106,4 +106,3 @@ class Square:
                 if n != self.__size - 1:
                     res.append('\n')
         return ''.join(res)
-

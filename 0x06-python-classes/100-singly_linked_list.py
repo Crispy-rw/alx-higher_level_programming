@@ -88,4 +88,3 @@ class SinglyLinkedList:
             ss.append(str(temp.data))
             temp = temp.next_node
         return ('\n'.join(ss))
-

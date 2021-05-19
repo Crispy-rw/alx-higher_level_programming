@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """Contains the definition for a MagicClass class"""
 import math
 
@@ -13,6 +14,7 @@ class MagicClass:
 
     def area(self):
         """Return area of the object
+
         Args:
             math.pi (int): pi
         """
@@ -20,6 +22,7 @@ class MagicClass:
 
     def circumference(self):
         """Return circumference of the object
+
         Args:
             math.pi (int): pi
         """

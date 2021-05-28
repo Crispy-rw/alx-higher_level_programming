@@ -1,0 +1,77 @@
+The ``0-add_integer`` module
+======================
+
+Using ``add_integer``
+-------------------
+Checking docstring for module:
+>>> __import__('0-add_integer').__doc__ != None
+True
+
+>>> add_integer = __import__('0-add_integer').add_integer
+
+>>> len(add_integer.__doc__) > 0
+True
+
+passing diferent types of arguments:
+>>> add_integer(None)
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+
+adding with arguments not int or not float:
+>>> add_integer(1, "School")
+Traceback (most recent call last):
+    ...
+TypeError: b must be an integer
+
+adding two numbers:
+>>> add_integer(2, 3)
+5
+
+adding with negative number:
+>>> add_integer(2, -94)
+-92
+
+adding two floats:
+>>> add_integer(8.0, 2.0)
+10
+
+add one negative float and one integer:
+>>> add_integer(-22.04, 1.0)
+-21
+
+Adding big numbers:
+>>> add_integer(1213213213213213212313213212313223, 45465456465465465465465465465)
+1213258678669678677778678677778688
+
+checking class of return:
+>>> type(add_integer(12.03, 1))
+<class 'int'>
+
+checking passing just the first argument:
+>>> add_integer(2)
+100
+
+checking no pass arguments:
+>>> add_integer()
+Traceback (most recent call last):
+    ...
+TypeError: add_integer() missing 1 required positional argument: 'a'
+
+checking passing more than 2 arguments:
+>>> add_integer(2, 7, 1)
+Traceback (most recent call last):
+    ...
+TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given
+
+try convert float NaN to integer:
+>>> add_integer(float('nan'), -2)
+Traceback (most recent call last):
+...
+ValueError: cannot convert float NaN to integer
+
+try convert float inf to integer:
+>>> add_integer(float('inf'), -2)
+Traceback (most recent call last):
+...
+OverflowError: cannot convert float infinity to integer

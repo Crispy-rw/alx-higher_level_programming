@@ -1,7 +1,12 @@
 #!/usr/bin/python3
+'''
+    Class enheritance from list
+'''
+
+
 class MyList(list):
-    """
-    Creating a class MyList that inherits from list
-    """
+    '''
+        print a list sorted
+    '''
     def print_sorted(self):
         print(sorted(self))

@@ -1,8 +1,15 @@
 #!/usr/bin/python3
-class BaseGeometry:
-    """
-    Class BaseGeometry: with Public instance method: def area(self):
-    that raises an Exception with the message area() is not implemented
-    """
+'''
+    Class empty
+'''
+
+
+class BaseGeometry():
+    '''
+        Represents a BaseGeometry class
+    '''
     def area(self):
-        raise Exception('area() is not implemented')
+        '''
+            raise exception if area was not implemented
+        '''
+        raise Exception("area() is not implemented")

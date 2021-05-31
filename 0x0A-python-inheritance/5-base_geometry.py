@@ -1,6 +1,11 @@
 #!/usr/bin/python3
-class BaseGeometry:
-    """
-    Creating an empty class: BaseGeometry
-    """
+'''
+    Class empty
+'''
+
+
+class BaseGeometry():
+    '''
+        Represents a BaseGeometry class
+    '''
     pass

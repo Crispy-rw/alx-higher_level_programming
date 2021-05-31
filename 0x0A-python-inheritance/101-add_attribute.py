@@ -12,8 +12,3 @@ def add_attribute(obj, name, value):
         raise TypeError("can't add new attribute")
     else:
         setattr(obj, name, value)
-
-    © 2021 GitHub, Inc.
-    Terms
-    Privacy
-    Security

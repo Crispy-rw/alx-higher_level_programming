@@ -1,73 +1,58 @@
 #!/usr/bin/python3
-""" Defines a class Square that inherits from Rectangle"""
-
-
-from models.base import Base
+"""
+Contains the definition of the class Square.
+"""
 from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
-    """ Class Square"""
-
+    """Definition of class Square that inherits from class Rectangle"""
     def __init__(self, size, x=0, y=0, id=None):
-        """ Instantiation of square instance variables"""
-
-        self.__size = size
+        """Initialize an instance of class Square"""
         super().__init__(size, size, x, y, id)
-
-    def __str__(self):
-        """ returns the string representation of Square"""
-
-        s = "[Square] ({}) {}/{} - {}".format(
-            self.id, self.x, self.y, self.width)
-        return s
 
     @property
     def size(self):
-        """ Returns private attribute self"""
-        return self.__size
+        """Initialize and return size attribute"""
+        return self.width
 
     @size.setter
     def size(self, value):
-        """Validates value and assigns it to private attribute size"""
-        if type(value) is not int:
+        if type(value) is int:
+            if value <= 0:
+                raise ValueError("width must be > 0")
+            self.width = value
+            self.height = value
+        else:
             raise TypeError("width must be an integer")
-        if value <= 0:
-            raise ValueError("width must be > 0")
-        self.__width = value
-        self.__height = value
+
+    def __str__(self):
+        """Return a string representation of an instance of class Square"""
+        return "[{}] ({}) {}/{} - {}".format(type(self).__name__, self.id,
+                                             self.x, self.y, self.width)
 
     def update(self, *args, **kwargs):
-        """Updates attributes of an instance.
-        using *args and/or **kwargs
+        """Assigns an argument to each attribute
+        Args:
+            args (pointer): a "pointer" to an array of strings
+            kwargs (double pointer): "double pointer" to a dictionary that has
+                                     keyword:value pairs
         """
-
-        if args is not None and len(args) != 0:
-            if len(args) >= 1:
-                if type(args[0]) != int and args[0] is not None:
-                    raise TypeError("id must be an integer")
-                self.id = args[0]
-            if len(args) > 1:
-                self.size = args[1]
-            if len(args) > 2:
-                self.x = args[2]
-            if len(args) > 3:
-                self.y = args[3]
-        else:
-            for key, value in kwargs.items():
-                if key == "id":
-                    if type(value) != int and value is not None:
-                        raise TypeError("id must be an integer")
-                    self.id = value
-                if key == "size":
-                    self.size = value
-                if key == "x":
-                    self.x = value
-                if key == "y":
-                    self.y = value
+        if len(args) != 0:
+            for i, arg in enumerate(args):
+                if i == 0:
+                    self.id = arg
+                elif i == 1:
+                    self.size = arg
+                elif i == 2:
+                    self.x = arg
+                elif i == 3:
+                    self.y = arg
+        if kwargs is not None and len(args) == 0:
+            for key, val in kwargs.items():
+                self.__setattr__(key, val)
 
     def to_dictionary(self):
-        """Returns the dictionary representation of a Square."""
-
-        my_dict = {'id': self.id, 'size': self.size, 'x': self.x, 'y': self.y}
-        return my_dict
+        """Returns dictionary representation of instance of class Rectangle"""
+        keys = ["id", "size", "x", "y"]
+        return {a: getattr(self, a) for a in keys}

@@ -45,7 +45,7 @@ class Base:
         to_save = []
         if list_objs is None:
             with open(filename, mode="w", encoding="UTF-8") as f:
-                f.write(to_save)
+                f.write(str(to_save))
         else:
             for obj in list_objs:
                 obj = obj.to_dictionary()

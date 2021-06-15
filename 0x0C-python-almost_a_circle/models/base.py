@@ -2,6 +2,7 @@
 """
 Contains definition of the class Base
 """
+import os
 import json
 import csv
 

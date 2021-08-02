@@ -2,11 +2,11 @@
 
 const occur = parseInt(process.argv[2]);
 
-if (isNaN(occur) || occur == undefined){
+if (isNaN(occur) || occur === undefined) {
   console.log('Missing size');
-}else{
+} else {
   let i = 0;
-  while(i < occur){
+  while (i < occur) {
     console.log(`${Array(occur).fill('X').join('')}`);
     i++;
   }

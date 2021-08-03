@@ -1,5 +1,5 @@
 #!/usr/bin/node
-// Empty function: Rectangle
-function Rectangle () {
+// Empty class: Rectangle
+class Rectangle {
 }
 module.exports = Rectangle;

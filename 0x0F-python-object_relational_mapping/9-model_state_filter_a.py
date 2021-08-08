@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-lists all State objects that contain
-the letter a from the database hbtn_0e_6_usa
+Using the SQLAlchemy module, list all State objects
+from the database hbtn_0e_6_usa that contain the letter 'a'
 """
 
 import sys
